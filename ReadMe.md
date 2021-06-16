@@ -24,20 +24,25 @@ Although some of the features don't work, it shows a general overview of what an
 
 In order to install it in your computer, clone the project from [GitHub](https://github.com/rafaelsoteldosilva/CryptoCurrencies), then run the following in the containing folder, in order to add the corresponding dependencies
 
-"Install React-NativeCLI" (npm install -g react-native-cli)  
-npm install @react-navigation/native  
-npm install react-native-gesture-handler -native-screens react-native-safe-area-context @react-native-community/masked-view  
-npm install @react-navigation/stack  
-npm install react-native-screens  
-npm install react-redux redux redux-thunk  
-npm install axios  
+- "Install React-NativeCLI" (npm install -g react-native-cli)  
+- npm install @react-navigation/native  
+- npm install react-native-gesture-handler -native-screens  
+- react-native-safe-area-context @react-native-community/masked-view  
+- npm install @react-navigation/stack  
+- npm install react-native-screens  
+- npm install react-redux redux redux-thunk  
+- npm install axios  
 
 ## React Native Debugger
 
-npm install --save-dev react-devtools  
-add *"devtools": "react-devtools"* under scripts in package.json  
-npm run devtools  
-Make sure you install the **Stand-alone React Native Debugger** for a better debugging experience.
+- npm install --save-dev react-devtools  
+- add *"devtools": "react-devtools"* under scripts in package.json  
+- npm run devtools  
+- Make sure you install the **Stand-alone React Native Debugger** for a better debugging experience.
+
+The redux store is configured in /stores/configStore.js in a way that the debugger gets connected to the app, including your redux state, once running
+
+Previously, I combined two reducers using combineReducers (/stores/rootReducer.js), but then I created a manually combined reducer in /stores/superReducer.js (I'm no longer using /stores/rootReducer.js). The main reason I did this was that I was trying to make the debugger to show my redux state, and by asking a question in StackOverflow, somebody suggested me to do it. It didn't work at that time. I fixed the problem later, but I didn't take the time to revert it back
 
 [Here you can download the debugger](https://github.com/jhen0409/react-native-debugger/releases)
 
@@ -69,7 +74,7 @@ Each of them are wrapped in a MainLayout component:
         </MainLayout>
 ```
 
-This MainLayout is there to detect when the central button tab was pressed, in that case, a redux state flag was set (in tabs.js), then MainLayout dims the background and animates the presentation of two bottom buttons, transfer and withdraw
+This MainLayout is there to detect when the central button tab was pressed, in that case, a redux state flag is set (in /navigation/tabs.js), then MainLayout dims the background and animates the presentation of two bottom buttons: "transfer" and "withdraw"
 
 ## Libraries and API used in this project
 
@@ -81,32 +86,32 @@ Axios
 
 And I used the [CoinGecko](https://www.coingecko.com/en/api) API to get the current values of the market CryptoCurrencies. It doesn't require API keys 😀😀
 
-Specifically, I used /coins/markets to get the CryptoCurrencies values:
+Specifically, I used /coins/markets to get the following CryptoCurrencies values:
 
-id  
-symbol  
-name  
-image  
-current price  
-price percentage change in the last 7 days  
-spark line in 7 days (it is useful for drawing the line charts)
+- id  
+- symbol  
+- name  
+- image  
+- current price  
+- price percentage change in the last 7 days  
+- spark line in 7 days (it is useful for drawing the line charts)
 
 ## Notes
 
-The components **Home**, **Portfolio** and **Market** should show line charts, in this version I couldn't show them since I kept getting library related errors (like @rainbow-me/animated-charts, and others)
+The components **/screens/Home**, **/screens/Portfolio** and **/screens/Market** should show line charts, in this version I couldn't show them since I kept getting library related errors (like @rainbow-me/animated-charts, and others)
 
-In a next version I'll have this issues solved. In the meantime, I showed a message "Here goes the chart", and in **Market** I showed "LineChart" in the place where a little line chart should be shown
+In a next version I'll have this issues solved. In the meantime, I showed a message "Here goes the chart" in **Home** and **Portfolio**, and in **Market** I showed "LineChart" in the place where a little line chart should be shown
 
 It also hard codes the current wallet of the user, in the constant dummyData.holdings I place what should be that current wallet.
 
-In another version of the app, it will keep it in a database, that could be PostgreSql, in conjunction with express and sequelize to ease the construction of the queries. It will bring the buttons transfer and withdraw to life
+In another version of the app, it will keep it in a database, which could be PostgreSql, in conjunction with express and sequelize to ease the construction of the queries. It will bring the buttons transfer and withdraw to life
 <br />
 <br />
 <br />
 
-Although the **Trade** button should be black according to the general design, I liked it white better 😀😀😀😀😀
+Although the bottom **Trade** button should be black according to the general design, I liked it white better 😁😁😁😁😁😁😁😁😁
 <br />
 <br />
 <br />
 
-Rafael Soteldo
+Rafael Soteldo  

@@ -1,7 +1,7 @@
 export const holdings = [
     {
         id: 'bitcoin',
-        qty: 888
+        qty: 234
     },
     {
         id: 'ethereum',
@@ -9,7 +9,7 @@ export const holdings = [
     },
     {
         id: 'dogecoin',
-        qty: 88888
+        qty: 16354
     },
     {
         id: 'tether',

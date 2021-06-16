@@ -16,12 +16,10 @@ import * as helper from '../helpers/helperFunctions';
 const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
     const [selectedCoin, setSelectedCoin] = React.useState(null);
 
-    useFocusEffect(
-        React.useCallback(() => {
-            getHoldings();
-            getCoinMarket();
-        }, [])
-    );
+    useEffect(() => {
+        getHoldings();
+        getCoinMarket();
+    }, [])
 
     let totalWallet = myHoldings.reduce((a, b) => a + (b.total || 0), 0);
     let valueChange = myHoldings.reduce(
@@ -128,7 +126,7 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
                         </View>
                     }
                     renderItem={({ item }) => {
-                        let priceColor =
+                        let pricePercChangeColor =
                             item.price_change_percentage_7d_in_currency == 0
                                 ? COLORS.lightGray3
                                 : item.price_change_percentage_7d_in_currency >
@@ -206,7 +204,7 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
                                                 style={{
                                                     height: 10,
                                                     width: 10,
-                                                    tintColor: priceColor,
+                                                    tintColor: pricePercChangeColor,
                                                     transform:
                                                         item.price_change_percentage_7d_in_currency >
                                                         0
@@ -227,7 +225,7 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
                                         <Text
                                             style={{
                                                 marginLeft: 5,
-                                                color: priceColor,
+                                                color: pricePercChangeColor,
                                                 ...FONTS.body5,
                                                 lineHeight: 15
                                             }}

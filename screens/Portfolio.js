@@ -23,13 +23,8 @@ const Portfolio = ({ getHoldings, myHoldings }) => {
 
     React.useEffect(() => {
         setShowChart(true);
+        getHoldings();
     }, []);
-
-    useFocusEffect(
-        React.useCallback(() => {
-            getHoldings();
-        }, [])
-    );
 
     let totalWallet = myHoldings.reduce((a, b) => a + (b.total || 0), 0);
     let valueChange = myHoldings.reduce(
