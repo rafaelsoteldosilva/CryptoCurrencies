@@ -24,7 +24,7 @@ Although some of the features don't work, it shows a general overview of what an
 
 In order to install it in your computer, clone the project from [GitHub](https://github.com/rafaelsoteldosilva/CryptoCurrencies), then run the following in the containing folder, in order to add the corresponding dependencies
 
-- "Install React-NativeCLI" (npm install -g react-native-cli)  
+- "Install React-Native-CLI" (npm install -g react-native-cli)  
 - npm install @react-navigation/native  
 - npm install react-native-gesture-handler -native-screens  
 - react-native-safe-area-context @react-native-community/masked-view  
