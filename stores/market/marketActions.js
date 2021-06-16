@@ -26,8 +26,7 @@ export const getHoldingsFailure = (error) => ({
 });
 
 export function getHoldings() {
-    let holdings = [],
-        currency = 'usd',
+    let currency = 'usd',
         orderBy = 'market_cap_desc',
         sparkline = true,
         priceChangePerc = '7d',
